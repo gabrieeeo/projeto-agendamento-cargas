@@ -17,7 +17,9 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fornecedor;
+    @ManyToOne
+    private Fornecedor fornecedor;
+
     private String pedido;
     private String material;
     private Integer quantidade;
