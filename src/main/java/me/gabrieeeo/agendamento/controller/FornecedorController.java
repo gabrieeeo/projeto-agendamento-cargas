@@ -3,10 +3,7 @@ package me.gabrieeeo.agendamento.controller;
 import me.gabrieeeo.agendamento.model.Fornecedor;
 import me.gabrieeeo.agendamento.service.FornecedorService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class FornecedorController {
         return ResponseEntity.ok(fornecedorService.salvar(fornecedor));
     }
 
-    @PostMapping
+    @GetMapping
     public ResponseEntity<List<Fornecedor>> listar() {
         return ResponseEntity.ok(fornecedorService.listarTodos());
     }
