@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 @RestController
 @RequestMapping("/fornecedores")
 public class FornecedorController {
@@ -26,4 +27,15 @@ public class FornecedorController {
     public ResponseEntity<List<Fornecedor>> listar() {
         return ResponseEntity.ok(fornecedorService.listarTodos());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        boolean removido = fornecedorService.deletarPorId(id);
+        if (removido) {
+            return ResponseEntity.noContent().build(); //204
+        }else {
+            return ResponseEntity.notFound().build(); //404
+        }
+    }
+
 }
