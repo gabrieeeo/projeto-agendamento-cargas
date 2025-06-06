@@ -28,4 +28,12 @@ public class FornecedorService {
         return fornecedorRepository.findById(id);
     }
 
+    public boolean deletarPorId(Long id) {
+        if (fornecedorRepository.existsById(id)) {
+            fornecedorRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
 }
