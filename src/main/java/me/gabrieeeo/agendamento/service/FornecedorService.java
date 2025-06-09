@@ -36,4 +36,12 @@ public class FornecedorService {
         return false;
     }
 
+    public Fornecedor atualizar(Long id, Fornecedor novoFornecedor) {
+        return fornecedorRepository.findById(id).map(fornecedor -> {
+            fornecedorRepository.save(novoFornecedor);
+            return fornecedorRepository.save(fornecedor);
+        }).orElse(null);
+    }
+
+
 }
