@@ -38,4 +38,14 @@ public class FornecedorController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Fornecedor> atualizar(@PathVariable Long id, @RequestBody Fornecedor novoFornecedor) {
+        Fornecedor atualizado = fornecedorService.atualizar(id, novoFornecedor);
+        if (atualizado != null) {
+            return ResponseEntity.ok(atualizado);
+        } else {
+            return ResponseEntity.notFound().build(); // 404 se não encontrar o fornecedor
+        }
+    }
+
 }
