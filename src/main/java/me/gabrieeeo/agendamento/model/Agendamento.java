@@ -19,9 +19,9 @@ public class Agendamento {
     private Fornecedor fornecedor;
 
     private String pedido;
-    private String material;
-    private Integer quantidade;
+    /*private String material;*/
+    /*private Integer quantidade;*/
     private LocalDate data;
-    private String volume;
+    private String paletes;
     private String observacoes;
 }
